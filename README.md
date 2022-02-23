@@ -118,3 +118,33 @@ Students will be provided with:
 Students are required to:
 * Complete the backend template provided to include the required functionalities for customers.
 * Complete the frontend template provided to develop the customer frontend App.
+
+# Backend deployment steps:
+1. Accept the assignment of your github classroom if you have not done it before. Once you accepted it, you will have your own copy of this project template.
+2. Clone your private repository at your local development environment by opening VScode and clone it by opening Command Palette (Ctrl+Shift+P or F1) and `Git clone` this repository, or using the terminal and running
+```PowerShell
+git clone <url>
+```
+
+It may be necessary to setup your github username by running the following commands on your terminal: 
+```PowerShell
+git config --global user.name "FIRST_NAME LAST_NAME"
+git config --global user.email "MY_NAME@example.com"
+```
+
+In case you are asked if you trust the author, please select yes.
+
+3. Setup your environment file. As explained in labs, it is needed to create a copy of the `.env.example` file, name it `.env` and include your environment variables, specially your database username and password.
+
+4. Install dependencies. Run `npm install` to download and install packages to the current project folder.
+
+5. Check and run mariaDB server. 
+* Windows:
+  * If installed as service run `services.msc` and start the mariadb service
+  * If installed as binary, locate your mariaDB binary and start.
+* Macos: 
+```Powershell 
+mysql.server start
+```
+6. Run migrations and seeders. You can use the previously configured task by opening the command palette Command Palette (Ctrl+Shift+P or F1) `Tasks: run task` and select `Rebuild database`
+7. Run `npm start`
