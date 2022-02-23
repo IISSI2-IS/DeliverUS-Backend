@@ -22,7 +22,6 @@ passport.use(new BearerStrategy(
       const user = await UserController.findByToken(token)
       return done(null, user, { scope: 'all' })
     } catch (err) {
-      console.log('BearerStrategy')
       return done(null, false, { message: err.message })
     }
   }
