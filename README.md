@@ -142,7 +142,7 @@ In case you are asked if you trust the author, please select yes.
 * Windows:
   * If installed as service run `services.msc` and start the mariadb service
   * If installed as binary, locate your mariaDB binary and start.
-* Macos: 
+* MacOS: 
 ```Powershell 
 mysql.server start
 ```
