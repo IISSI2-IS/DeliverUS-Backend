@@ -33,7 +33,7 @@ The system has to store the quantity of each product included in the order and t
 ## Conceptual model
 From the information requirements and objectives described, the following Conceptual model or Entity Diagram is proposed:
 
-![DeliverUS-EntityDiagram drawio (2)](https://user-images.githubusercontent.com/19324988/155347424-c2c87a8e-00f4-400e-8024-eca40a776c6a.png)
+![DeliverUS-EntityDiagram drawio (3)](https://user-images.githubusercontent.com/19324988/155700850-bb7817fb-8818-440b-97cb-4fbd33787f20.png)
 
 ## Business rules
 * BR1: If an order total price is greater than 10€ the shipping costs will be 0€ (free shipping). 
