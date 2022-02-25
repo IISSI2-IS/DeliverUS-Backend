@@ -28,6 +28,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Order.init({
+    createdAt: DataTypes.DATE,
     startedAt: DataTypes.DATE,
     sentAt: DataTypes.DATE,
     deliveredAt: DataTypes.DATE,
