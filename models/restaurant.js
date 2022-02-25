@@ -50,8 +50,14 @@ module.exports = (sequelize, DataTypes) => {
         'temporarily closed'
       ]
     },
-    restaurantCategoryId: DataTypes.INTEGER,
-    userId: DataTypes.INTEGER,
+    restaurantCategoryId: {
+      allowNull: false,
+      type: DataTypes.INTEGER
+    },
+    userId: {
+      allowNull: false,
+      type: DataTypes.INTEGER
+    },
     createdAt: {
       allowNull: false,
       type: DataTypes.DATE,
