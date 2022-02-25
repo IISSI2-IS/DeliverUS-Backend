@@ -36,7 +36,7 @@ From the information requirements and objectives described, the following class 
 ![DeliverUS-EntityDiagram drawio (3)](https://user-images.githubusercontent.com/19324988/155700850-bb7817fb-8818-440b-97cb-4fbd33787f20.png)
 
 ## Business rules
-* BR1: If an order total price is greater than 10€ the shipping costs will be 0€ (free shipping). 
+* BR1: If an order total price is greater than 10€ the shipping costs will be 0€ (free shipping).
 * BR2: An order can only include products from one restaurant
 * BR3: Once an order is placed, it cannot be modified.
 
@@ -51,18 +51,18 @@ Customers will be able to query restaurants details and the products offered by 
 A customer can add several products, and several units of a product to a new order. Before confirming, customer can edit and remove products. Once the order is confirmed, it cannot be edited or removed.
 #### FR4: Confirm or dismiss new order
 If an order is confirmed, it is created with the state _pending_. Shipping costs must follow BR1: _Orders greater than 10€ don't have service fee_. An order is automatically related to the customer who created it.
-If an order is dismissed, nothing is created. 
+If an order is dismissed, nothing is created.
 #### FR5: Listing my confirmed orders
 A Customer will be able to check his/her confirmed orders, sorted from the most recent to the oldest.
 #### FR6: Show order details
 A customer will be able to look his/her orders up. The system should provide all details of an order, including the ordered products and their prices.
 #### FR7: Show top 3 products
 Customers will be able to query top 3 products from all restaurants. Top products are the most popular ones, in other words the best sellers.
-	
+
 ### Owner functional requirements:
 As a restaurant owner, the system has to provide the following functionalities:
 #### FR1: Add, list, edit and remove Restaurants
-Restaurantes are related to an owner, so owners can perform these operations to the restaurants owned by him. If an owner creates a Restaurant, it will be automatically related (owned) to him.
+Restaurants are related to an owner, so owners can perform these operations to the restaurants owned by him. If an owner creates a Restaurant, it will be automatically related (owned) to him.
 #### FR2: Add, list, edit and remove  Products
 An owner can create, read, update and delete the products related to any of his owned Restaurants.
 #### FR3: List orders of a Restaurant.
@@ -82,7 +82,7 @@ Backend should include basic measures to prevent general security holes to be ex
 
 For login and authentication purposes, a password, a token and a tokenExpiration (token authentication strategy) date should also be stored for users.
 
-Note: This subject does not focus on security topics, but we will use libraries made by cybersecurity experts that will help us to include these measures. In Node.js ecosystem, Sequelize includes data sanitization and other measures to prevent SQL injection attacks and we will use the helmet package for the rest of potential security holes when publishing REST services. 
+Note: This subject does not focus on security topics, but we will use libraries made by cybersecurity experts that will help us to include these measures. In Node.js ecosystem, Sequelize includes data sanitization and other measures to prevent SQL injection attacks and we will use the helmet package for the rest of potential security holes when publishing REST services.
 
 ### Scalability
 The system should use a stack of technologies that could be deployed in more than one machine, horizontal scalability ready.
@@ -127,7 +127,7 @@ Students are required to:
 git clone <url>
 ```
 
-It may be necessary to setup your github username by running the following commands on your terminal: 
+It may be necessary to setup your github username by running the following commands on your terminal:
 ```PowerShell
 git config --global user.name "FIRST_NAME LAST_NAME"
 git config --global user.email "MY_NAME@example.com"
@@ -139,12 +139,12 @@ In case you are asked if you trust the author, please select yes.
 
 4. Install dependencies. Run `npm install` to download and install packages to the current project folder.
 
-5. Check and run mariaDB server. 
+5. Check and run mariaDB server.
 * Windows:
   * If installed as service run `services.msc` and start the mariadb service
   * If installed as binary, locate your mariaDB binary and start.
-* MacOS: 
-```Powershell 
+* MacOS:
+```Powershell
 mysql.server start
 ```
 6. Run migrations and seeders. You can use the previously configured task by opening the command palette Command Palette (Ctrl+Shift+P or F1) `Tasks: run task` and select `Rebuild database`
