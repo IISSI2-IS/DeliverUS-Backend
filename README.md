@@ -14,7 +14,7 @@ The software has to enable customers to order products to restaurants. To this e
 
 ## Information requirements
 ### IR-1: Users
-DeliverUS expects two types of users: restaurant owners and customers. The following information should be stored: First name, last name, email, phone number, avatar image, address and postal code. For login purposes, a password should also be stored.
+DeliverUS expects two types of users: restaurant owners and customers. The following information should be stored: First name, last name, email, phone number, avatar image, address and postal code. For login and authentication purposes, a password, a token and a tokenExpiration date should also be stored.
 
 ### IR-2: Restaurants
 Owners manage restaurants. The following information should be stored: name, description, address, postal code, url, email, phone number, logo, hero image (it will serve as restaurant background image), shipping costs (default for orders placed to this restaurant), average service time in minutes (which will be computed from the orders record), status. A restaurant status represent if it is accepting orders, currently unavailable, or temporarily/permanently closed.
@@ -30,8 +30,8 @@ Orders are placed by customers. Each order will include a set of products from o
 
 The system has to store the quantity of each product included in the order and the unitary price of each product at the moment of order placement.
 
-## Conceptual model
-From the information requirements and objectives described, the following Conceptual model or Entity Diagram is proposed:
+## Class diagram proposed for design
+From the information requirements and objectives described, the following class diagram is proposed:
 
 ![DeliverUS-EntityDiagram drawio (3)](https://user-images.githubusercontent.com/19324988/155700850-bb7817fb-8818-440b-97cb-4fbd33787f20.png)
 
@@ -61,9 +61,9 @@ Customers will be able to query top 3 products from all restaurants. Top product
 	
 ### Owner functional requirements:
 As a restaurant owner, the system has to provide the following functionalities:
-#### FR1: To Create, Read, Update and Delete (CRUD) Restaurants
+#### FR1: Add, list, edit and remove Restaurants
 Restaurantes are related to an owner, so owners can perform these operations to the restaurants owned by him. If an owner creates a Restaurant, it will be automatically related (owned) to him.
-#### FR2: CRUD of Products
+#### FR2: Add, list, edit and remove  Products
 An owner can create, read, update and delete the products related to any of his owned Restaurants.
 #### FR3: List orders of a Restaurant.
 An owner will be able to inspect orders of any of the restaurants owned by him. The order should include products related.
@@ -74,17 +74,18 @@ An owner can change the state of an order. States can change from: _pending_ to 
 
 
 ## Non-functional requirements
-### Devices and operating systems
-The system has to provide users the possibility to be accessed through the most popular operating systems for mobile and desktop devices.
+### Portability
+The system has to provide users the possibility to be accessed and run through the most popular operating systems for mobile and desktop devices.
 
 ### Security
 Backend should include basic measures to prevent general security holes to be exploited such as: sql injection, contentSecurityPolicy, crossOriginEmbedderPolicy, crossOriginOpenerPolicy, crossOriginResourcePolicy, dnsPrefetchControl, expectCt, frameguard, hidePoweredBy, helmet.hsts, ieNoOpen, noSniff, originAgentCluster, permittedCrossDomainPolicies, referrerPolicy, xssFilter.
 
+For login and authentication purposes, a password, a token and a tokenExpiration (token authentication strategy) date should also be stored for users.
+
 Note: This subject does not focus on security topics, but we will use libraries made by cybersecurity experts that will help us to include these measures. In Node.js ecosystem, Sequelize includes data sanitization and other measures to prevent SQL injection attacks and we will use the helmet package for the rest of potential security holes when publishing REST services. 
 
 ### Scalability
-The system should use a stack of technologies that could be deployed in more than one machine.
-
+The system should use a stack of technologies that could be deployed in more than one machine, horizontal scalability ready.
 
 ## Proposed architecture
 Once that requirements have been analyzed by our company's software architects, the following general architecture is proposed:
