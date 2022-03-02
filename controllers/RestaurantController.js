@@ -47,10 +47,10 @@ exports.create = async function (req, res) {
     const newRestaurant = Restaurant.build(req.body)
     newRestaurant.userId = req.user.id // usuario actualmente autenticado
 
-    if (typeof req.files.heroImage !== 'undefined') {
+    if (typeof req.files?.heroImage !== 'undefined') {
       newRestaurant.heroImage = req.files.heroImage[0].path
     }
-    if (typeof req.files.logo !== 'undefined') {
+    if (typeof req.files?.logo !== 'undefined') {
       newRestaurant.logo = req.files.logo[0].path
     }
     try {
@@ -101,10 +101,10 @@ exports.update = async function (req, res) {
   if (err.errors.length > 0) {
     res.status(422).send(err)
   } else {
-    if (typeof req.files.heroImage !== 'undefined') {
+    if (typeof req.files?.heroImage !== 'undefined') {
       req.body.heroImage = req.files.heroImage[0].path
     }
-    if (typeof req.files.logo !== 'undefined') {
+    if (typeof req.files?.logo !== 'undefined') {
       req.body.logo = req.files.logo[0].path
     }
     try {
