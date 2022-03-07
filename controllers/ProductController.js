@@ -63,7 +63,7 @@ exports.update = async function (req, res) {
 
 exports.destroy = async function (req, res) {
   try {
-    const result = Product.destroy({ where: { id: req.params.productId } })
+    const result = await Product.destroy({ where: { id: req.params.productId } })
     let message
     if (result === 1) {
       message = 'Sucessfuly deleted product id.' + req.params.productId
