@@ -51,7 +51,8 @@ module.exports = {
         .custom((value, { req }) => {
           return FileValidationHelper.checkFileMaxSize(req.files.logo[0], maxFileSize)
         })
-        .withMessage('Maximum file size of ' + maxFileSize / 1000000 + 'MB')
+        .withMessage('Maximum file size of ' + maxFileSize / 1000000 + 'MB'),
+      check('email').isEmail()
     ]
   }
 }
