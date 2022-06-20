@@ -10,8 +10,8 @@ services:
     environment:
       # ALLOW_EMPTY_PASSWORD is recommended only for development.
       - ALLOW_EMPTY_PASSWORD=yes
-      - MARIADB_USER=iissi2is
-      - MARIADB_PASSWORD=iissi2is
+      - MARIADB_USER=iissi_user
+      - MARIADB_PASSWORD=iissi$user
       - MARIADB_DATABASE=deliverus
       - MARIADB_SKIP_TEST_DB=yes
     healthcheck:
@@ -29,7 +29,7 @@ services:
         - .:/src
         - node_modules:/src/node_modules
       command: > 
-        sh -c "pwd && npm install && /wait && npm run docker_debug"
+        sh -c "pwd && npm install && /wait && /wait && npx sequelize-cli db:migrate:undo:all; npx sequelize-cli db:migrate; npx sequelize-cli db:seed:all && npm run docker_debug"
       ports:
         - "3000:3000"
         - "9229:9229"
@@ -45,7 +45,7 @@ services:
       env_file:
         - .env.docker
       networks:
-          - iissi2is
+        - iissi2is
 networks:
   iissi2is:
     driver: bridge
